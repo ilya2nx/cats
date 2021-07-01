@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+.gradient {
+  background: url('../images/gradient.png');
+  height: 20px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.title {
+  background: #686868;
+  height: 90px;
+  .title__text {
+    text-align: center;
+    font-size: 25px;
+    line-height: 20px;
+    text-transform: uppercase;
+    padding-top: 33px;
+    color: white;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.switcher {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  :nth-child(2) {
+    margin-left: 25px;
+  }
+  a {
+    color: #686868;
+    text-transform: uppercase;
+    font-size: 17px;
+  }
+  h3.active a {
+    border-bottom: 3px solid #68a6cf;
+    padding-bottom: 1px;
+  }
+}
