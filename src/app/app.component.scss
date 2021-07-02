@@ -12,12 +12,14 @@
 .title {
   background: #686868;
   height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .title__text {
     text-align: center;
     font-size: 25px;
     line-height: 20px;
     text-transform: uppercase;
-    padding-top: 33px;
     color: white;
   }
 }
@@ -41,5 +43,17 @@ a {
   h3.active a {
     border-bottom: 3px solid #68a6cf;
     padding-bottom: 1px;
+  }
+}
+
+.footer {
+  background: #686868;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .footer__text {
+    color: white;
+    font-size: 18px;
   }
 }

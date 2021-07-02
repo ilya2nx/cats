@@ -1,24 +1,35 @@
-img {
-  padding-bottom: 0;
-}
-
 .content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 50px;
-  // width: 100%;
-  .card__title {
-    // width: 100%;
-    background: #a3a3a3;
-    height: 50px;
-    .like {
-      cursor: pointer;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1570px;
+  .content__card {
+    width: 22%;
+    .cat-photo {
+      width: 100%;
+      display: block;
     }
-  }
-  .fd {
-    width: 25px;
-    height: 25px;
-    background: black;
+    .card__title {
+      display: flex;
+      justify-content: space-between;
+      background: #a3a3a3;
+      height: 60px;
+      margin-bottom: 70px;
+      align-items: center;
+      .card__text {
+        color: white;
+        font-size: 21px;
+        padding-left: 20px;
+      }
+      .like {
+        cursor: pointer;
+        padding-right: 20px;
+        width: 35px;
+      }
+    }
   }
 }

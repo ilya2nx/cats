@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-tile',
   templateUrl: './tile.component.html',
@@ -28,7 +28,9 @@ export class TileComponent implements OnInit {
 
   onLike(id: any): void {
     this.objs.map((el: any) => {
-      if (el.id === id) el.liked = !el.liked
+      if (el.id === id) {
+        el.liked = !el.liked
+      }
     })
   }
 }

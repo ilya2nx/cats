@@ -1,14 +1,12 @@
-<!-- <p>Здесь будет плитка</p> -->
-
 <div class="content">
   <div *ngFor="let cat of objs" class="content__card">
-    <img src="{{ cat.image }}" alt="Cat-photo">
+    <img src="{{ cat.image }}" alt="Cat-photo" class="cat-photo">
     <div class="card__title">
-      <p>{{ cat.name }}</p>
+      <p class="card__text">{{ cat.name }}</p>
       <div (click)="onLike(cat.id)">
-        <img class="like" *ngIf="!cat.liked; else liked" src="http://html.ftpes.ru/FrontEndTest/favorite_border.svg" alt="">
+        <img *ngIf="cat.liked; else liked" class="like" src="http://html.ftpes.ru/FrontEndTest/favorite_full.svg" alt="">
         <ng-template #liked>
-          <img class="like" src="http://html.ftpes.ru/FrontEndTest/favorite_full.svg" alt="">
+          <img class="like" src="http://html.ftpes.ru/FrontEndTest/favorite_border.svg" alt="">
         </ng-template>
       </div>
     </div>
