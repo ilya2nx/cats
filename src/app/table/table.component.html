@@ -1,10 +1,12 @@
-<div class="content">
-  <div *ngFor="let cat of objs" class="content__card">
+<div class="container">
+  <div *ngFor="let cat of objs" class="card">
     <img src="{{ cat.image }}" alt="Cat-photo" class="cat-photo">
-    <div class="card__title">
-      <p class="card__text">{{ cat.name }}</p>
-      <p class="card__description">{{ cat.description }}</p>
-      <div (click)="onLike(cat.id)">
+    <div class="card__inner">
+      <div class="card__content">
+        <p class="card__title">{{ cat.name }}</p>
+        <p class="card__description">{{ cat.description }}</p>
+      </div>
+      <div (click)="onLike(cat.id)" class="like-pos">
         <img *ngIf="cat.liked; else liked" class="like" src="http://html.ftpes.ru/FrontEndTest/favorite_full.svg" alt="">
         <ng-template #liked>
           <img class="like" src="http://html.ftpes.ru/FrontEndTest/favorite_border.svg" alt="">

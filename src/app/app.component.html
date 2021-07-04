@@ -3,15 +3,49 @@
   <h1 class="title__text">Библиотека котиков</h1>
 </div>
 <div class="switcher">
-  <h3 routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-    <a routerLink="/">Плитка</a>
-  </h3>
-  <h3 routerLinkActive="active">
-    <a routerLink="/table">Таблица</a>
-  </h3>
+  <h3 class="switcher__title" [class.active]="!toggle" (click)="toggle = false">Плитка</h3>
+  <h3 class="switcher__title" [class.active]="toggle" (click)="toggle = true">Таблица</h3>
 </div>
 <div class="container">
-  <router-outlet></router-outlet>
+  <div [ngSwitch]="toggle">
+    <app-tile *ngSwitchCase="false" (info)="onLike($event)" [objs]="objs"></app-tile>
+    <app-table *ngSwitchCase="true" (info)="onLike($event)" [objs]="objs"></app-table>
+  </div>
+  <div class="btn-position">
+    <button class="btn" data-bs-toggle="modal" data-bs-target="#addItemModal">Добавить нового котика</button>
+  </div>
+
+  <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Создать новую карточку</h5>
+          <button #closeModal (click)="resetNewItem()" type="button" class="close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="image" class="form-label">Вставьте ссылку на картинку: </label>
+            <input (input)="onInput('image', $event)" [(ngModel)]="newItem.image" type="text" class="form-control" id="image">
+          </div>
+          <div *ngIf="warnings.image" class="warning">Поле должно быть заполено</div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Имя котика: </label>
+            <input (input)="onInput('name', $event)" [(ngModel)]="newItem.name" type="text" class="form-control" id="name">
+          </div>
+          <div *ngIf="warnings.name" class="warning">Поле должно быть заполено</div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Описание котика: </label>
+            <input (input)="onInput('description', $event)" [(ngModel)]="newItem.description" type="text" class="form-control" id="description">
+          </div>
+          <div *ngIf="warnings.description" class="warning">Поле должно быть заполено</div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="onAdd()" type="button" class="btn">Создать</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 <div class="footer">
   <p class="footer__text">© ExpertSender</p>
